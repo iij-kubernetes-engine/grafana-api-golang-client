@@ -72,3 +72,8 @@ func (c *Client) PauseAllAlerts() (PauseAllAlertsResponse, error) {
 
 	return result, err
 }
+
+// ReloadLDAPConfiguration reloads ldap.toml
+func (c *Client) ReloadLDAPConfiguration() error {
+       return c.request("POST", fmt.Sprintf("/api/admin/ldap/reload"), nil, nil, nil)
+}
